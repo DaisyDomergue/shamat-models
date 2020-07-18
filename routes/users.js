@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     if (err){
       return next(err);
     }
-    res.send(users);
+    res.render('users/profile', {title: 'User profile'});
   });
 });
 router.post('/', function(req, res, next) {

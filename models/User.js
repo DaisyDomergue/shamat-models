@@ -7,15 +7,15 @@ var UserSchema = new mongoose.Schema({
       required: true
     },
     sendermaxcriticalamount:{
-      type: float,
+      type: Number,
       required: true,
     },
     receivermincriticalamount:{
-      type: float,
+      type: Number,
       required: true,
     },
     receiversalarypertransaction:{
-      type: float,
+      type: Number,
       required: true,
     },
     senderexchangerate:{

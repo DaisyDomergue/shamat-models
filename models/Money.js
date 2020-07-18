@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var MoneySchema = mongoose.Schema({
     amount:{
-        type: Float,
+        type: Number,
         required:true
     },
     currency:{
-        type: Schema.ObjectId,
+        type: ObjectId,
         ref: "Currency"
     }
 },{

@@ -4,10 +4,12 @@ var CurrencySchema = mongoose.Schema({
     currencyname:{
         type: String,
         required: true,
+        unique:true
     },
     currencyshortname:{
         type: String,
         required: true,
+        unique:true
     },
     currencysymbol:{
         type: String,
