@@ -1,17 +1,29 @@
 var mongoose = require('mongoose');
 
-var CommissionrateSchema = mongoose.Schema({
-    currency:{
+class CommissionModel {
+// var CommissionrateSchema = mongoose.Schema({
+    constructor(){
+        this.definition();
+    }
+    definition(){
+    this.currency={
         type: Schema.ObjectId,
         ref: 'Currency',
         required: true
-    },
-    rate:{
+    };
+    this.rate={
         type: Float,
         required: true,
-    }
-},{
-    timestamps:true
-});
+    };
+}
+getSchema(){
+    const schema = mongoose.Schema(this);
+    return schema;
+}
+getValidationSchema(){
+    return null;
+}
+}
+
 var Comissionrate = mongoose.model('Commissionrate',CommissionrateSchema);
 module.exports = Comissionrate;
