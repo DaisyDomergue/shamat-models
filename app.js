@@ -7,10 +7,18 @@ var mongoose = require('mongoose');
 require('./models/User');
 require('./models/Money');
 require('./models/Currency');
+require('./models/Loger');
 
 
-
-
+// var uri = 'mongodb://localhost/shamatdb';
+// var options = {
+// user: 'root',
+// pass: 'toor'
+// }
+// mongoose.connect(uri, options, function(err){
+// if (err) throw err;
+// // if no error == connected
+// });
 mongoose.connect('mongodb://localhost/shamatdb');
 mongoose.set('debug', true);
 mongoose.connection.on('open', function() {
