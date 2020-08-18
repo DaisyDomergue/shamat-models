@@ -1,29 +1,44 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+// const joi = require('joi');
+const Datas = require('./ModelUtils/DataDefinition');
+const BaseModel = require('./ModelUtils/BaseModel');
 
-class CommissionModel {
-// var CommissionrateSchema = mongoose.Schema({
-    constructor(){
-        this.definition();
+class Commissionrate extends BaseModel {
+    constructor(modelname) {
+        super(modelname);
+        this.add(Datas.ref('currency','Currency'));
+        this.add(Datas.number('rate'));
+        this.getModel();
     }
-    definition(){
-    this.currency={
-        type: Schema.ObjectId,
-        ref: 'Currency',
-        required: true
-    };
-    this.rate={
-        type: Float,
-        required: true,
-    };
 }
-getSchema(){
-    const schema = mongoose.Schema(this);
-    return schema;
-}
-getValidationSchema(){
-    return null;
-}
-}
+Commissionrate = new Commissionrate('commissionrate');
+module.exports = Commissionrate;
+// var mongoose = require('mongoose');
 
-var Comissionrate = mongoose.model('Commissionrate',CommissionrateSchema);
-module.exports = Comissionrate;
+// class CommissionModel {
+// // var CommissionrateSchema = mongoose.Schema({
+//     constructor(){
+//         this.definition();
+//     }
+//     definition(){
+//     this.currency={
+//         type: Schema.ObjectId,
+//         ref: 'Currency',
+//         required: true
+//     };
+//     this.rate={
+//         type: Number,
+//         required: true,
+//     };
+// }
+// getSchema(){
+//     const schema = mongoose.Schema(this);
+//     return schema;
+// }
+// getValidationSchema(){
+//     return null;
+// }
+// }
+
+// var Comissionrate = mongoose.model('Commissionrate',CommissionrateSchema);
+// module.exports = Comissionrate;

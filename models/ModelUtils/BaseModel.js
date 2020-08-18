@@ -25,9 +25,20 @@ class BaseModel {
         this.validationrules[def.field_name] = def.validation;
         this.updatevalidationrules[def.field_name] = def.updatevalidationrules;
     }
+    addschema(name,def,val,upval) {
+        // if(Config.Debug){
+        console.log('Adding new existing schema to model',def);
+        console.log(name);
+        // }
+        
+        this.field[name] = def;
+        this.validationrules[name] = val;
+        this.updatevalidationrules[name] = upval;
+
+    }
     getModel() {
         this.model = mongoose.model(this.modna, this.getSchema());
-        console.log("BaseModel.getModel this =", this);
+        // console.log("BaseModel.getModel this =", this);
         return this.model;
     }
     validation(obj) {
